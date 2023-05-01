@@ -1,0 +1,46 @@
+class DATAXMEDICAL {
+  List NameDataMedical = [
+    "Golden Gate Hospital",
+        "Maplewood Medical Center",
+        "Ocean View Hospital",
+        "Bayside Community Hospital",
+        "Rosewood Medical Center",
+        "Sunrise General Hospital",
+        "Magnolia Medical Center",
+        "Cypress Regional Hospital",
+        "Evergreen Hospital",
+        "Parkside Medical Center",
+        "Pinecrest General Hospital",
+        "Redwood Regional Medical Center",
+        "Lakeside Hospital",
+        "Fairview Medical Center",
+        "Birchwood Hospital",
+        "Sycamore Regional Medical Center",
+        "Oakmont Medical Center",
+        "Meadowbrook Community Hospital",
+        "Willow Creek Hospital",
+        "Aspen Grove Medical Center"
+  ];
+  List NumberDataMedical = [
+      "555-342-0987",
+        "876-123-5678",
+        "234-987-7654",
+        "789-456-2345",
+        "123-890-3456",
+        "456-321-9876",
+        "678-901-2345",
+        "432-109-8765",
+        "567-890-1234",
+        "987-654-3210",
+        "321-654-0987",
+        "654-321-7890",
+        "890-123-4567",
+        "234-567-8901",
+        "901-234-5678",
+        "345-678-9012",
+        "678-901-3456",
+        "123-456-7890",
+        "789-012-3456",
+        "543-210-9876"
+  ];
+}
