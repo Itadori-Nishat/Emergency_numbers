@@ -1,4 +1,5 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:emergency_numbers/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'DefaultTabBarUiPage.dart';
 
@@ -40,7 +41,7 @@ class SplashScreen extends StatelessWidget {
           )),
           animationDuration: Duration(seconds: 2),
           splashTransition: SplashTransition.fadeTransition,
-          nextScreen: DefaultTabBarPage()),
+          nextScreen: HomePage()),
     );
   }
 }

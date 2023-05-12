@@ -1,7 +1,7 @@
 import 'package:emergency_numbers/Fire%20service/DataXfire.dart';
 import 'package:flutter/material.dart';
 
-import '../AboutPage.dart';
+import '../UI /AboutPage.dart';
 import '../Police/DataXpolice.dart';
 
 class FireSeviceEmergencyNumber extends StatefulWidget {
@@ -18,92 +18,97 @@ class _FireSeviceEmergencyNumberState extends State<FireSeviceEmergencyNumber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FireServiceSearchResultShow()));
-              },
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.05,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey.shade400,
-                    width: 1.0,
+      appBar: AppBar(
+        title: Text("Fire service"),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FireServiceSearchResultShow()));
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 1.0,
+                    ),
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.search,
-                        color: Colors.black.withOpacity(0.5),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Search fire service",
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.5), fontSize: 17),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.search,
+                          color: Colors.black.withOpacity(0.5),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Search fire service",
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.5), fontSize: 17),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-              child: ListView.builder(
-                itemCount: dataTable.NameDataFire.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                                  AboutPage(
-                                    name: dataTable.NameDataFire[index],
-                                    number: dataTable.NumberDataFire[index],
-                                  )));
-                    },
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(dataTable.NameDataFire[index],style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),),
-                                Text(dataTable.NumberDataFire[index]),
+            Expanded(
+                child: ListView.builder(
+                  itemCount: dataTable.NameDataFire.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                                    AboutPage(
+                                      name: dataTable.NameDataFire[index],
+                                      number: dataTable.NumberDataFire[index],
+                                    )));
+                      },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(dataTable.NameDataFire[index],style: TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.w500),),
+                                  Text(dataTable.NumberDataFire[index]),
 
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _isFav = !_isFav;
-                                });
-                              },
-                              icon: Icon(_isFav?Icons.favorite: Icons.favorite_border,color: _isFav?Colors.red:Colors.black54,
-                              )),
-                        ],
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isFav = !_isFav;
+                                  });
+                                },
+                                icon: Icon(_isFav?Icons.favorite: Icons.favorite_border,color: _isFav?Colors.red:Colors.black54,
+                                )),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },))
-        ],
+                    );
+                  },))
+          ],
+        ),
       ),
     );
   }

@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'DataXpolice.dart';
-import '../AboutPage.dart';
+import '../UI /AboutPage.dart';
 
 class PoliceEmergencyNumber extends StatefulWidget {
   PoliceEmergencyNumber({Key? key}) : super(key: key);
@@ -18,118 +18,123 @@ class _PoliceEmergencyNumberState extends State<PoliceEmergencyNumber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => PoliceSearchResultShow()));
-              },
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.05,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey.shade400,
-                    width: 1.0,
+      appBar: AppBar(
+        title: Text("Police"),
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PoliceSearchResultShow()));
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 1.0,
+                    ),
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.search,
-                        color: Colors.black.withOpacity(0.5),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "Search police by name",
-                        style: TextStyle(
-                            color: Colors.black.withOpacity(0.5), fontSize: 17),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.search,
+                          color: Colors.black.withOpacity(0.5),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Search police by name",
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.5), fontSize: 17),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: dataTable.name.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                    child: Padding(
-                  padding: EdgeInsets.all(15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => AboutPage(
-                                    name: dataTable.name[index],
-                                    number: dataTable.number[index],
-                                    image: dataTable.photo[index],
-                                    email: dataTable.email[index],
-                                    bp: dataTable.BP[index],
-                                    sector: dataTable.sector[index],
-                                  )));
-                        },
-                        child: Row(
-                          children: [
-                            Container(
-                              height: 40,
-                              width: 40,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-
-                              ),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(dataTable.photo[index])),
-                            ),
-                            SizedBox(width: 15,),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  dataTable.name[index],
-                                  style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.w500),
-                                ),
-                                Text(dataTable.number[index]),
-                                Text("Location")
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _isFav = !_isFav;
-                            });
+            Expanded(
+              child: ListView.builder(
+                itemCount: dataTable.name.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                      child: Padding(
+                    padding: EdgeInsets.all(15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AboutPage(
+                                      name: dataTable.name[index],
+                                      number: dataTable.number[index],
+                                      image: dataTable.photo[index],
+                                      email: dataTable.email[index],
+                                      bp: dataTable.BP[index],
+                                      sector: dataTable.sector[index],
+                                    )));
                           },
-                          icon: Icon(_isFav?Icons.favorite: Icons.favorite_border,color: _isFav?Colors.red:Colors.black54,
-                          )),
-                    ],
-                  ),
-                ));
-              },
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 40,
+                                width: 40,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+
+                                ),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Image.network(dataTable.photo[index])),
+                              ),
+                              SizedBox(width: 15,),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    dataTable.name[index],
+                                    style: TextStyle(
+                                        fontSize: 18, fontWeight: FontWeight.w500),
+                                  ),
+                                  Text(dataTable.number[index]),
+                                  Text("Location")
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _isFav = !_isFav;
+                              });
+                            },
+                            icon: Icon(_isFav?Icons.favorite: Icons.favorite_border,color: _isFav?Colors.red:Colors.black54,
+                            )),
+                      ],
+                    ),
+                  ));
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

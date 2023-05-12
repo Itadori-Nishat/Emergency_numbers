@@ -6,6 +6,9 @@ class MedicalEmergencyNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Hospital"),
+      ),
       body: Center(
         child: Text("Medical"),
       ),
