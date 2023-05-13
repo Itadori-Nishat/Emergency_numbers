@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
 
-class RAB_EmergencyNumber extends StatelessWidget {
-  RAB_EmergencyNumber({Key? key}) : super(key: key);
+class DoctorEmergencyNumber extends StatelessWidget {
+  DoctorEmergencyNumber({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("R.A.B"),
+        title: Text("Doctor"),
       ),
       body: Center(
         child:
-        Text("R.A.B"),
+        Text("Doctor"),
       ),
     );
   }
 }
-

@@ -1,10 +1,13 @@
-import 'package:emergency_numbers/Medical/DataXmedical.dart';
-import 'package:emergency_numbers/Medical/Hospital_Name.dart';
+import 'package:emergency_numbers/Medical/About%20Hospital.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
+import 'DataXmedical.dart';
 
-class Medical_EmergencyNumber extends StatelessWidget {
-  Medical_EmergencyNumber({Key? key}) : super(key: key);
+class Hospital_Name extends StatelessWidget {
+  String? zillaName;
+  Hospital_Name({Key? key,this.zillaName}) : super(key: key);
+
 
   DATAxMEDICAL medicalData = DATAxMEDICAL();
 
@@ -12,7 +15,7 @@ class Medical_EmergencyNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hospital"),
+        title: Text(zillaName.toString()),
       ),
       body: Column(
         children: [
@@ -20,7 +23,7 @@ class Medical_EmergencyNumber extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ZillaseachResult()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalSeachResult()));
               },
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.05,
@@ -45,7 +48,7 @@ class Medical_EmergencyNumber extends StatelessWidget {
                         width: 10,
                       ),
                       Text(
-                        "search your area",
+                        "Search hospital in ${zillaName}",
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.5), fontSize: 17),
                       ),
@@ -57,20 +60,42 @@ class Medical_EmergencyNumber extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: medicalData.hospital_zilla.length,
+              itemCount: medicalData.hospital_names.length,
               itemBuilder: (BuildContext context, int index) {
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Hospital_Name(
-                      zillaName: medicalData.hospital_zilla[index],)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => AboutHospitalPage(
+                      hospitalName: medicalData.hospital_names[index],
+                      hospitalAddress: medicalData.hospital_addres[index],
+                      hospitalNumber: medicalData.hospital_phones[index],
+                    )));
                   },
                   child: Card(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Text(medicalData.hospital_zilla[index],style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold
-                      ),),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(medicalData.hospital_names[index],style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold
+                          ),),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: Text(medicalData.hospital_addres[index]),
+                          ),
+                          GestureDetector(
+                            onLongPress: (){
+                              ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                backgroundColor: Colors.teal,
+                                content: Text("Number has been copied"),
+                                duration: Duration(seconds: 2),  ),);
+                            Clipboard.setData(ClipboardData(text:medicalData.hospital_phones[index]));
+                            },
+                              child: Text(medicalData.hospital_phones[index]))
+                        ],
+                      ),
                     ),
                   ),
                 );
@@ -85,17 +110,15 @@ class Medical_EmergencyNumber extends StatelessWidget {
 
 
 
-
-
 ///Search Result Scaffold
-class ZillaseachResult extends StatefulWidget {
-  ZillaseachResult({Key? key}) : super(key: key);
+class HospitalSeachResult extends StatefulWidget {
+  HospitalSeachResult({Key? key}) : super(key: key);
 
   @override
-  State<ZillaseachResult> createState() => _ZillaseachResultState();
+  State<HospitalSeachResult> createState() => _HospitalSeachResultState();
 }
 
-class _ZillaseachResultState extends State<ZillaseachResult> {
+class _HospitalSeachResultState extends State<HospitalSeachResult> {
   DATAxMEDICAL medicalData = DATAxMEDICAL();
 
   String? userSearched;
@@ -105,9 +128,9 @@ class _ZillaseachResultState extends State<ZillaseachResult> {
     List searchFilter = [];
     if(userSearched == null || userSearched!.isEmpty) {
     } else {
-      for (int i = 0; i < medicalData.hospital_zilla.length; i++) {
-        if(medicalData.hospital_zilla[i].toLowerCase().contains(userSearched!.toLowerCase())){
-          searchFilter.add(medicalData.hospital_zilla[i]);
+      for (int i = 0; i < medicalData.hospital_names.length; i++) {
+        if(medicalData.hospital_names[i].toLowerCase().contains(userSearched!.toLowerCase())){
+          searchFilter.add(medicalData.hospital_names[i]);
         }
       }
     }
@@ -154,7 +177,7 @@ class _ZillaseachResultState extends State<ZillaseachResult> {
               Icons.search,
               color: Colors.grey,
             ),
-            hintText: 'Search zilla',
+            hintText: 'Search hospital',
             hintStyle: TextStyle(color: Colors.grey, fontSize: 19),
             border: InputBorder.none,
             contentPadding:
@@ -183,9 +206,4 @@ class _ZillaseachResultState extends State<ZillaseachResult> {
     );
   }
 }
-
-
-
-
-
 

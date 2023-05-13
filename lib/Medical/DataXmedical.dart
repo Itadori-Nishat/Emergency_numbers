@@ -1,46 +1,45 @@
-class DATAXMEDICAL {
-  List NameDataMedical = [
-    "Golden Gate Hospital",
-        "Maplewood Medical Center",
-        "Ocean View Hospital",
-        "Bayside Community Hospital",
-        "Rosewood Medical Center",
-        "Sunrise General Hospital",
-        "Magnolia Medical Center",
-        "Cypress Regional Hospital",
-        "Evergreen Hospital",
-        "Parkside Medical Center",
-        "Pinecrest General Hospital",
-        "Redwood Regional Medical Center",
-        "Lakeside Hospital",
-        "Fairview Medical Center",
-        "Birchwood Hospital",
-        "Sycamore Regional Medical Center",
-        "Oakmont Medical Center",
-        "Meadowbrook Community Hospital",
-        "Willow Creek Hospital",
-        "Aspen Grove Medical Center"
+class DATAxMEDICAL {
+
+  List hospital_zilla = [
+    "Feni",
+    "Dhaka",
+    "Chittagong",
+    "Khulna",
+    "Rajshahi",
+    "Barisal",
+    "Sylhet",
+    "Rangpur",
+    "Mymensingh",
+    "Narayanganj",
+    "Gazipur"
   ];
-  List NumberDataMedical = [
-      "555-342-0987",
-        "876-123-5678",
-        "234-987-7654",
-        "789-456-2345",
-        "123-890-3456",
-        "456-321-9876",
-        "678-901-2345",
-        "432-109-8765",
-        "567-890-1234",
-        "987-654-3210",
-        "321-654-0987",
-        "654-321-7890",
-        "890-123-4567",
-        "234-567-8901",
-        "901-234-5678",
-        "345-678-9012",
-        "678-901-3456",
-        "123-456-7890",
-        "789-012-3456",
-        "543-210-9876"
+
+  List hospital_names = [
+    "Al-Kamy Hospital",
+    "ZU Hospital",
+    "Mission Hospital Feni",
+    "National Heart Foundation and Research Institute",
+    "Royal Hospital & Diagnostic Centre",
+    "Concept Hospital"
   ];
+
+  List hospital_phones = [
+    "01839-994132/01974-062790",
+    "01881-101016",
+    "01878-018630",
+    "01842-748811",
+    "01745-623838",
+    "01869-865545"
+  ];
+
+  List hospital_addres = [
+    "S.S.K Road,Feni",
+    "Karim Tower, S.S.K Road,Feni",
+    "Sufi Sadar Uddin Rd,Feni",
+    "Mizan Rd, Feni",
+    "Grand Trunk Road, Feni",
+    "Grand Trunk Road, Feni",
+  ];
+
+
 }

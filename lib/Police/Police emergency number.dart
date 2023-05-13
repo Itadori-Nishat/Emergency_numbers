@@ -86,7 +86,6 @@ class _PoliceEmergencyNumberState extends State<PoliceEmergencyNumber> {
                                       number: dataTable.number[index],
                                       image: dataTable.photo[index],
                                       email: dataTable.email[index],
-                                      bp: dataTable.BP[index],
                                       sector: dataTable.sector[index],
                                     )));
                           },
@@ -169,7 +168,6 @@ class _PoliceSearchResultShowState extends State<PoliceSearchResultShow> {
           searchednumberFilter.add(dataTable.number[i]);
           searchedImageFilter.add(dataTable.photo[i]);
           searchedEmailFilter.add(dataTable.email[i]);
-          searchedBP.add(dataTable.BP[i]);
           sector.add(dataTable.sector[i]);
         }
       }
@@ -244,7 +242,6 @@ class _PoliceSearchResultShowState extends State<PoliceSearchResultShow> {
                                   number: searchednumberFilter[index],
                                   image: searchedImageFilter[index],
                                   email: searchedEmailFilter[index],
-                                  bp: searchedBP[index],
                                   sector: sector[index],
                                 )));
                       },

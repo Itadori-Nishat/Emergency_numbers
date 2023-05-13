@@ -7,9 +7,8 @@ class AboutPage extends StatelessWidget {
   String? number;
   String? image;
   String? email;
-  String? bp;
   String? sector;
-   AboutPage({Key? key, this.name,  this.number, this.image, this.email, this.bp, this.sector}) : super(key: key);
+   AboutPage({Key? key, this.name,  this.number, this.image, this.email, this.sector}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -96,19 +95,6 @@ class AboutPage extends StatelessWidget {
                             Icon(Icons.location_on_outlined,size: 25,),
                             SizedBox(width: 15,),
                             Text("S.S.K Road, Feni", style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400
-                            ),)
-                          ],
-                        ),
-                        SizedBox(height: 15,),
-                        Row(
-                          children: [
-                            Text("BP-",style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15
-                            ),),
-                            SizedBox(width: 15,),
-                            Text(bp.toString(), style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400
                             ),)
