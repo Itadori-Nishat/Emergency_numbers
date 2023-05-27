@@ -1,14 +1,13 @@
 import 'package:emergency_numbers/Fire%20service/DataXfire.dart';
 import 'package:flutter/material.dart';
-
-import '../UI /AboutPage.dart';
+import '../UI/AboutPage.dart';
+import '../Police/DataXpolice.dart';
 
 class FireSeviceEmergencyNumber extends StatefulWidget {
   FireSeviceEmergencyNumber({Key? key}) : super(key: key);
 
   @override
-  State<FireSeviceEmergencyNumber> createState() =>
-      _FireSeviceEmergencyNumberState();
+  State<FireSeviceEmergencyNumber> createState() => _FireSeviceEmergencyNumberState();
 }
 
 class _FireSeviceEmergencyNumberState extends State<FireSeviceEmergencyNumber> {
@@ -19,70 +18,94 @@ class _FireSeviceEmergencyNumberState extends State<FireSeviceEmergencyNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FireServiceSearchResultShow()));
-              },
-              icon: Icon(Icons.search))
-        ],
-        title: Text("ফায়ার সার্ভিস"),
+        title: Text("Fire service"),
       ),
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(
-                child: ListView.builder(
-              itemCount: dataTable.NameDataFire.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FireServiceSearchResultShow()));
+                },
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.grey.shade400,
+                      width: 1.0,
+                    ),
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
                   child: Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => AboutPage(
-                                          name: dataTable.NameDataFire[index],
-                                          number:
-                                              dataTable.NumberDataFire[index],
-                                        )));
-                          },
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                dataTable.NameDataFire[index],
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ),
-                              Text(dataTable.NumberDataFire[index]),
-                            ],
-                          ),
+                        Icon(
+                          Icons.search,
+                          color: Colors.black.withOpacity(0.5),
                         ),
-                        IconButton(
-                            onPressed: () {
-                              setState(() {
-                                _isFav = !_isFav;
-                              });
-                            },
-                            icon: Icon(
-                              _isFav ? Icons.favorite : Icons.favorite_border,
-                              color: _isFav ? Colors.red : Colors.black54,
-                            )),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "Search fire service",
+                          style: TextStyle(
+                              color: Colors.black.withOpacity(0.5), fontSize: 17),
+                        ),
                       ],
                     ),
                   ),
-                );
-              },
-            ))
+                ),
+              ),
+            ),
+            Expanded(
+                child: ListView.builder(
+                  itemCount: dataTable.NameDataFire.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                                    AboutPage(
+                                      name: dataTable.NameDataFire[index],
+                                      number: dataTable.NumberDataFire[index],
+                                    )));
+                      },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(dataTable.NameDataFire[index],style: TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.w500),),
+                                  Text(dataTable.NumberDataFire[index]),
+
+                                ],
+                              ),
+                            ),
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isFav = !_isFav;
+                                  });
+                                },
+                                icon: Icon(_isFav?Icons.favorite: Icons.favorite_border,color: _isFav?Colors.red:Colors.black54,
+                                )),
+                          ],
+                        ),
+                      ),
+                    );
+                  },))
           ],
         ),
       ),
@@ -94,24 +117,20 @@ class FireServiceSearchResultShow extends StatefulWidget {
   const FireServiceSearchResultShow({Key? key}) : super(key: key);
 
   @override
-  State<FireServiceSearchResultShow> createState() =>
-      _FireServiceSearchResultShowState();
+  State<FireServiceSearchResultShow> createState() => _FireServiceSearchResultShowState();
 }
 
-class _FireServiceSearchResultShowState
-    extends State<FireServiceSearchResultShow> {
+class _FireServiceSearchResultShowState extends State<FireServiceSearchResultShow> {
   DATAxFIRESERVICE dataTable = DATAxFIRESERVICE();
   String? userSearched;
   @override
   Widget build(BuildContext context) {
     List searchFilter = [];
     List searchedFilterNumber = [];
-    if (userSearched == null || userSearched!.isEmpty) {
+    if(userSearched == null || userSearched!.isEmpty){
     } else {
-      for (int i = 0; i < dataTable.NameDataFire.length; i++) {
-        if (dataTable.NameDataFire[i]
-            .toLowerCase()
-            .contains(userSearched!.toLowerCase())) {
+      for (int i =0; i<dataTable.NameDataFire.length; i++){
+        if(dataTable.NameDataFire[i].toLowerCase().contains(userSearched!.toLowerCase())){
           searchFilter.add(dataTable.NameDataFire[i]);
           searchedFilterNumber.add(dataTable.NumberDataFire[i]);
         }
@@ -154,17 +173,17 @@ class _FireServiceSearchResultShowState
               userSearched = value;
             });
           },
-          style: const TextStyle(fontSize: 16.0, color: Colors.black),
+          style: const TextStyle(fontSize: 16.0,color: Colors.black),
           decoration: const InputDecoration(
             prefixIcon: Icon(
               Icons.search,
               color: Colors.grey,
             ),
-            hintText: 'ফায়ার সার্ভিস খুঁজুন',
+            hintText: 'Search police by name',
             hintStyle: TextStyle(color: Colors.grey, fontSize: 19),
             border: InputBorder.none,
             contentPadding:
-                EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
+            EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
           ),
         ),
       ),
@@ -179,23 +198,19 @@ class _FireServiceSearchResultShowState
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => AboutPage(
-                                    name: searchFilter[index],
-                                    number: searchedFilterNumber[index],
-                                  )));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                          AboutPage(
+                            name: searchFilter[index],
+                            number: searchedFilterNumber[index],
+                          )));
                     },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          searchFilter[index],
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w500),
-                        ),
+                        Text(searchFilter[index],style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w500),),
                         Text(searchedFilterNumber[index]),
+
                       ],
                     ),
                   ),
@@ -208,8 +223,8 @@ class _FireServiceSearchResultShowState
               ),
             ),
           );
-        },
-      ),
+        },),
     );
   }
 }
+

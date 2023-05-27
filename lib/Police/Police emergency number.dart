@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'DataXpolice.dart';
-import '../UI /AboutPage.dart';
+import '../UI/AboutPage.dart';
 
 class PoliceEmergencyNumber extends StatefulWidget {
   PoliceEmergencyNumber({Key? key}) : super(key: key);
