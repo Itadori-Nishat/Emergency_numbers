@@ -3,16 +3,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/services.dart';
 
 class AboutPage extends StatelessWidget {
-  String? name;
-  String? number;
-  String? image;
-  String? email;
-  String? sector;
+  final String? name, number, image,email,sector;
    AboutPage({Key? key, this.name,  this.number, this.image, this.email, this.sector}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(name.toString()),
