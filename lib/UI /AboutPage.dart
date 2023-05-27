@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 class AboutPage extends StatelessWidget {
   final String? name, number, image,email,sector;
-   AboutPage({Key? key, this.name,  this.number, this.image, this.email, this.sector}) : super(key: key);
+   const AboutPage({Key? key, this.name,  this.number, this.image, this.email, this.sector}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
