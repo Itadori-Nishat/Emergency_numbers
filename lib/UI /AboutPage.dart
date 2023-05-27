@@ -112,7 +112,7 @@ class AboutPage extends StatelessWidget {
                                     backgroundColor: Colors.teal,
                                     content: Text("Number has been copied"),
                                     duration: Duration(seconds: 2),  ),);
-                                Clipboard.setData(ClipboardData(text: number));
+                                Clipboard.setData(ClipboardData(text: number.toString()));
                               },
                               child: Text(number.toString(), style: TextStyle(
                                   fontSize: 16,
@@ -133,7 +133,7 @@ class AboutPage extends StatelessWidget {
                                     backgroundColor: Colors.teal,
                                     content: Text("Email has been copied"),
                                     duration: Duration(seconds: 2),  ),);
-                                Clipboard.setData(ClipboardData(text: email));
+                                Clipboard.setData(ClipboardData(text: email.toString()));
                               },
                               child: Text(email.toString(), style: TextStyle(
                                   fontSize: 16,
