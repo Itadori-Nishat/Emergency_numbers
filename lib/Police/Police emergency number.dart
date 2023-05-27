@@ -19,53 +19,21 @@ class _PoliceEmergencyNumberState extends State<PoliceEmergencyNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Police"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PoliceSearchResultShow()));
+              },
+              icon: Icon(Icons.search))
+        ],
+        title: Text("পুলিশ"),
       ),
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PoliceSearchResultShow()));
-                },
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey.shade400,
-                      width: 1.0,
-                    ),
-                    color: Colors.grey.shade200,
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.search,
-                          color: Colors.black.withOpacity(0.5),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Search police by name",
-                          style: TextStyle(
-                              color: Colors.black.withOpacity(0.5), fontSize: 17),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
             Expanded(
               child: ListView.builder(
                 itemCount: dataTable.name.length,
@@ -82,12 +50,12 @@ class _PoliceEmergencyNumberState extends State<PoliceEmergencyNumber> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => AboutPage(
-                                      name: dataTable.name[index],
-                                      number: dataTable.number[index],
-                                      image: dataTable.photo[index],
-                                      email: dataTable.email[index],
-                                      sector: dataTable.sector[index],
-                                    )));
+                                          name: dataTable.name[index],
+                                          number: dataTable.number[index],
+                                          image: dataTable.photo[index],
+                                          email: dataTable.email[index],
+                                          sector: dataTable.sector[index],
+                                        )));
                           },
                           child: Row(
                             children: [
@@ -96,23 +64,25 @@ class _PoliceEmergencyNumberState extends State<PoliceEmergencyNumber> {
                                 width: 40,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-
                                 ),
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
-                                    child: Image.network(dataTable.photo[index])),
+                                    child:
+                                        Image.network(dataTable.photo[index])),
                               ),
-                              SizedBox(width: 15,),
+                              SizedBox(
+                                width: 15,
+                              ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     dataTable.name[index],
                                     style: TextStyle(
-                                        fontSize: 18, fontWeight: FontWeight.w500),
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500),
                                   ),
                                   Text(dataTable.number[index]),
-                                  Text("Location")
                                 ],
                               ),
                             ],
@@ -124,7 +94,9 @@ class _PoliceEmergencyNumberState extends State<PoliceEmergencyNumber> {
                                 _isFav = !_isFav;
                               });
                             },
-                            icon: Icon(_isFav?Icons.favorite: Icons.favorite_border,color: _isFav?Colors.red:Colors.black54,
+                            icon: Icon(
+                              _isFav ? Icons.favorite : Icons.favorite_border,
+                              color: _isFav ? Colors.red : Colors.black54,
                             )),
                       ],
                     ),
@@ -154,16 +126,18 @@ class _PoliceSearchResultShowState extends State<PoliceSearchResultShow> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> searchedFilter = [ ];
-    List<String> searchednumberFilter = [ ];
-    List<String> searchedImageFilter = [ ];
-    List<String> searchedEmailFilter = [ ];
-    List<String> searchedBP = [ ];
-    List<String> sector = [ ];
-    if(userSearchedName == null || userSearchedName!.isEmpty) {
+    List<String> searchedFilter = [];
+    List<String> searchednumberFilter = [];
+    List<String> searchedImageFilter = [];
+    List<String> searchedEmailFilter = [];
+    List<String> searchedBP = [];
+    List<String> sector = [];
+    if (userSearchedName == null || userSearchedName!.isEmpty) {
     } else {
-      for (int i = 0; i<dataTable.name.length; i++) {
-        if(dataTable.name[i].toLowerCase().contains(userSearchedName!.toLowerCase())){
+      for (int i = 0; i < dataTable.name.length; i++) {
+        if (dataTable.name[i]
+            .toLowerCase()
+            .contains(userSearchedName!.toLowerCase())) {
           searchedFilter.add(dataTable.name[i]);
           searchednumberFilter.add(dataTable.number[i]);
           searchedImageFilter.add(dataTable.photo[i]);
@@ -209,13 +183,13 @@ class _PoliceSearchResultShowState extends State<PoliceSearchResultShow> {
               userSearchedName = value;
             });
           },
-          style: const TextStyle(fontSize: 16.0,color: Colors.black),
+          style: const TextStyle(fontSize: 16.0, color: Colors.black),
           decoration: const InputDecoration(
             prefixIcon: Icon(
               Icons.search,
               color: Colors.grey,
             ),
-            hintText: 'Search police by name',
+            hintText: 'এখানে অনুসন্ধান করুন',
             hintStyle: TextStyle(color: Colors.grey, fontSize: 19),
             border: InputBorder.none,
             contentPadding:
@@ -228,61 +202,62 @@ class _PoliceSearchResultShowState extends State<PoliceSearchResultShow> {
         itemBuilder: (BuildContext context, int index) {
           return Card(
               child: Padding(
-                padding: EdgeInsets.all(15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => AboutPage(
+            padding: EdgeInsets.all(15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AboutPage(
                                   name: searchedFilter[index],
                                   number: searchednumberFilter[index],
                                   image: searchedImageFilter[index],
                                   email: searchedEmailFilter[index],
                                   sector: sector[index],
                                 )));
-                      },
-                      child: Row(
+                  },
+                  child: Row(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: CachedNetworkImage(
+                                imageUrl: searchedImageFilter[index])),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            height: 40,
-                            width: 40,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-
-                            ),
-                            child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: CachedNetworkImage(
-                                    imageUrl: searchedImageFilter[index])),
+                          Text(
+                            searchedFilter[index],
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w500),
                           ),
-                          SizedBox(width: 15,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                searchedFilter[index],
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w500),
-                              ),
-                              Text(searchednumberFilter[index]),
-                              Text("Feni")
-                            ],
-                          ),
+                          Text(searchednumberFilter[index]),
+                          Text("Feni")
                         ],
                       ),
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.favorite_border,
-                        )),
-                  ],
+                    ],
+                  ),
                 ),
-              ));
+                IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.favorite_border,
+                    )),
+              ],
+            ),
+          ));
         },
       ),
     );

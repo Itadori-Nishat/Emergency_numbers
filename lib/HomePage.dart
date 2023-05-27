@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text("HomePage"),
+        title: Text("হোম পেজ"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   Icon(Icons.phone_android),
-                  Text("Emergency Numbers", style: TextStyle(
+                  Text("জরুরী নম্বর", style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold
                   ),)
@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset("Assets/pstation.png",height: 80,),
-                                Text("Police",style: TextStyle(
+                                Text("পুলিশ",style: TextStyle(
                                     fontSize: 18
                                 ),)
                               ],
@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset("Assets/fire.png",height: 80,),
-                                Text("Fire service",style: TextStyle(
+                                Text("ফায়ার সার্ভিস",style: TextStyle(
                                   fontSize: 18
                                 ),)
                               ],
@@ -94,7 +94,7 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset("Assets/hospt.png",height: 80,),
-                                Text("Hospital",style: TextStyle(
+                                Text("হাসপাতাল",style: TextStyle(
                                     fontSize: 18
                                 ),)
                               ],
@@ -123,7 +123,7 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset("Assets/rab.png",height: 80,),
-                                Text("R.A.B",style: TextStyle(
+                                Text("র‍্যাব",style: TextStyle(
                                     fontSize: 18
                                 ),)
                               ],
@@ -145,7 +145,7 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset("Assets/ambulance.png",height: 80,),
-                                Text("Ambulance",style: TextStyle(
+                                Text("অ্যাম্বুলেন্স",style: TextStyle(
                                     fontSize: 18
                                 ),)
                               ],
@@ -167,7 +167,7 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset("Assets/doctor.png",height: 80,),
-                                Text("Doctor",style: TextStyle(
+                                Text("ডাক্তার",style: TextStyle(
                                     fontSize: 18
                                 ),)
                               ],

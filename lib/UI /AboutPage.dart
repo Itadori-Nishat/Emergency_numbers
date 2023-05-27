@@ -34,13 +34,15 @@ class AboutPage extends StatelessWidget {
                  ),
                ),
                 SizedBox(height: 20,),
-                Text(
-                  name.toString(),
-                  style: TextStyle(
-                      fontFamily: "Serif",
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w600),
+                Center(
+                  child: Text(
+                    name.toString(),
+                    style: TextStyle(
+                        fontFamily: "Serif",
+                        color: Colors.black,
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
                 SizedBox(
                   height: 4,
@@ -48,25 +50,18 @@ class AboutPage extends StatelessWidget {
                 // Doctor Type
 
 
-                Text(
-                  sector.toString(),
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400),
+                Center(
+                  child: Text(
+                    sector.toString(),
+                    style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400),
+                  ),
                 ),
                 SizedBox(height: 10,
                 ),
                 Text(
-                  "SP, Feni Police Station",
-                  style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.blue, fontWeight: FontWeight.w400),
-                ),
-                SizedBox(height: 10,
-                ),
-                Text(
-                  " Address & other information ",
-
+                  "ঠিকানা এবং অন্যান্য তথ্য :",
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       decorationThickness: 1,
@@ -95,7 +90,7 @@ class AboutPage extends StatelessWidget {
                             Icon(Icons.location_on_outlined,size: 25,),
                             SizedBox(width: 15,),
                             Text("S.S.K Road, Feni", style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w400
                             ),)
                           ],
@@ -112,10 +107,10 @@ class AboutPage extends StatelessWidget {
                                     backgroundColor: Colors.teal,
                                     content: Text("Number has been copied"),
                                     duration: Duration(seconds: 2),  ),);
-                                Clipboard.setData(ClipboardData(text: number));
+                                Clipboard.setData(ClipboardData(text: number.toString()));
                               },
                               child: Text(number.toString(), style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.w400
                               ),),
                             )
@@ -133,10 +128,10 @@ class AboutPage extends StatelessWidget {
                                     backgroundColor: Colors.teal,
                                     content: Text("Email has been copied"),
                                     duration: Duration(seconds: 2),  ),);
-                                Clipboard.setData(ClipboardData(text: email));
+                                Clipboard.setData(ClipboardData(text: email.toString()));
                               },
                               child: Text(email.toString(), style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.w400
                               ),),
                             )
@@ -146,17 +141,6 @@ class AboutPage extends StatelessWidget {
                     ),
                   ),
 
-                ),
-                SizedBox(height: 30,),
-                SizedBox(
-                  height: height*.3,
-                  child: Text("Deterring crimes and assure community through high-visibility policing."
-                      "Patrolling assigned areas and monitor activities to protect people/property."
-                      "Investigating crimes and apprehending suspected law violators",
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.black.withOpacity(.6), fontWeight: FontWeight.w400),),
                 ),
               ],
             ),

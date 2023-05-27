@@ -1,41 +1,41 @@
 class DATAxPOLICE {
   List name = [
-    "MD. Mahabubor Rahman",
-    "Mohammad Azad Mia",
-    "Sheikh MD.Rezaul Hyder",
-    "Jehadul Kabir",
-    "A.K.M Awlad Hossain",
-    "Sana Shaminur Rahman",
-    "Masud Ahmed",
-    "MD. Shoeb Ahmed",
-    "MD. Abdullah-Al-Mamun",
-    "Md. Asaduzzaman"
+    "এম.ডি. মাহাবুবোর রহমান",
+    "মোহাম্মদ আজাদ মিয়া",
+    "শেখ এম.ডি. রেজাউল হাইদার",
+    "জেহাদুল কবির",
+    "একে.এম আওলাদ হোসেন",
+    "সানা শামীনুর রহমান",
+    "মাসুদ আহমেদ",
+    "এমডি. শোয়েব আহমেদ",
+    "এমডি. আব্দুল্লাহ-আল-মামুন",
+    "মহাম্মদ আসাদুজ্জামান",
   ];
 
   List sector = [
-    'Additional Inspector General of Police',
-    'Deputy Inspector General (Intelligence)',
-    'Deputy Inspector General (Admin & Finance)',
-    'Deputy Inspector General (Operation & Crime)',
-    'Additional Deputy Inspector General (Admin & Finance)',
-    'Additional Deputy Inspector General (Intelligence)',
-    'Additional Deputy Inspector General (Operation & Crime)',
-    'Superintendent of Police (Ops. & Intel.)',
-    'Additional Superintendent of Police (Ops. & Intel.)',
-    'Superintendent of Police (SP IP-4)',
+    "অতিরিক্ত পরিদর্শক জেল পুলিশ",
+        "উপ-পরিদর্শক (তদন্ত)",
+        "উপ-পরিদর্শক (প্রশাসন ও অর্থ)",
+        "উপ-পরিদর্শক (অপারেশন ও অপরাধ)",
+        "অতিরিক্ত উপ-পরিদর্শক (প্রশাসন ও অর্থ)",
+        "অতিরিক্ত উপ-পরিদর্শক (তদন্ত)",
+        "অতিরিক্ত উপ-পরিদর্শক (অপারেশন ও অপরাধ)",
+        "সুপারিউটেন্ডেন্ট অফ পুলিশ (অপারেশন ও তদন্ত)",
+        "অতিরিক্ত সুপারিউটেন্ডেন্ট অফ পুলিশ (অপারেশন ও তদন্ত)",
+        "সুপারিউটেন্ডেন্ট অফ পুলিশ (এসপি আইপি-৪)"
   ];
 
   List number = [
-    "01320-169600",
-    "01320-169605",
-    "01320-169603",
-    "01320-169604",
-    "01320-169613",
-    "01320-169614",
-    "01320-169615",
-    "01320-169634",
-    "01320-169694",
-    "01320-171600"
+    "০১৩২০-১৬৯৬০০",
+    "০১৩২০-১৬৯৬০৫",
+    "০১৩২০-১৬৯৬০৩",
+    "০১৩২০-১৬৯৬০৪",
+    "০১৩২০-১৬৯৬১৩",
+    "০১৩২০-১৬৯৬১৪",
+    "০১৩২০-১৬৯৬১৫",
+    "০১৩২০-১৬৯৬৩৪",
+    "০১৩২০-১৬৯৬৯৪",
+    "০১৩২০-১৭১৬০০"
   ];
 
   List photo = [
