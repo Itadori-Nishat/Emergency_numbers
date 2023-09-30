@@ -29,18 +29,18 @@ class AboutPage extends StatelessWidget {
                      imageUrl: image.toString(),fit: BoxFit.cover,),
                  ),
                ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 Center(
                   child: Text(
                     name.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontFamily: "Serif",
                         color: Colors.black,
                         fontSize: 25,
                         fontWeight: FontWeight.w600),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 4,
                 ),
                 // Doctor Type
@@ -49,14 +49,14 @@ class AboutPage extends StatelessWidget {
                 Center(
                   child: Text(
                     sector.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w400),
                   ),
                 ),
-                SizedBox(height: 10,
+                const SizedBox(height: 10,
                 ),
-                Text(
+                const Text(
                   "ঠিকানা এবং অন্যান্য তথ্য :",
                   style: TextStyle(
                       decoration: TextDecoration.underline,
@@ -65,10 +65,10 @@ class AboutPage extends StatelessWidget {
                       fontSize: 18,
                       fontWeight: FontWeight.w500),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                SizedBox(height: 4,
+                const SizedBox(height: 4,
                 ),
                 Card(
                   shape: RoundedRectangleBorder(
@@ -81,7 +81,7 @@ class AboutPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
+                        const Row(
                           children: [
                             Icon(Icons.location_on_outlined,size: 25,),
                             SizedBox(width: 15,),
@@ -91,42 +91,42 @@ class AboutPage extends StatelessWidget {
                             ),)
                           ],
                         ),
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
                         Row(
                           children: [
-                            Icon(Icons.phone,),
-                            SizedBox(width: 15,),
+                            const Icon(Icons.phone,),
+                            const SizedBox(width: 15,),
                             GestureDetector(
                               onLongPress: (){
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
+                                  const SnackBar(
                                     backgroundColor: Colors.teal,
                                     content: Text("Number has been copied"),
                                     duration: Duration(seconds: 2),  ),);
                                 Clipboard.setData(ClipboardData(text: number.toString()));
                               },
-                              child: Text(number.toString(), style: TextStyle(
+                              child: Text(number.toString(), style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w400
                               ),),
                             )
                           ],
                         ),
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
                         Row(
                           children: [
-                            Icon(Icons.email,),
-                            SizedBox(width: 15,),
+                            const Icon(Icons.email,),
+                            const SizedBox(width: 14,),
                             GestureDetector(
                               onLongPress: (){
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
+                                  const SnackBar(
                                     backgroundColor: Colors.teal,
-                                    content: Text("Email has been copied"),
+                                    content: Text("Email has been copied !"),
                                     duration: Duration(seconds: 2),  ),);
                                 Clipboard.setData(ClipboardData(text: email.toString()));
                               },
-                              child: Text(email.toString(), style: TextStyle(
+                              child: Text(email.toString(), style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w400
                               ),),
